@@ -15,11 +15,11 @@ exports.signup = (req, res) => {
   const user = new User(req.body);
   user.save((err, user) => {
     if (err) {
-      return res.status(400).json({
+      return res.status(400).json({ //response code 400 for bad request
         err: "NOT able to save user in DB"
       });
     }
-    res.json({
+    res.json({ //selectively return 
       name: user.name,
       email: user.email,
       id: user._id
